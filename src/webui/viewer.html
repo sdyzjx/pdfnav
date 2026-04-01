@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF Workspace Viewer</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./viewer.css" />
+  </head>
+  <body>
+    <div class="backdrop backdrop-left"></div>
+    <div class="backdrop backdrop-right"></div>
+
+    <main class="shell workspace-shell">
+      <section class="hero card viewer-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Parsed Workspace</p>
+          <h1 id="documentTitle">Loading workspace</h1>
+          <p id="documentSubtitle" class="lede">
+            Reading TOC, sections, pages, figures, and formulas from the local workspace.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <button id="themeToggleButton" class="ghost-button" type="button">Theme</button>
+          <a class="ghost-button link-button" href="/book">Book</a>
+          <a class="ghost-button link-button" href="/config">Config</a>
+          <a id="sourcePdfLink" class="ghost-button link-button" href="/workspace/source.pdf" target="_blank" rel="noreferrer">
+            Source PDF
+          </a>
+        </div>
+      </section>
+
+      <section class="workspace-summary">
+        <article class="card panel summary-card">
+          <p class="eyebrow">Document</p>
+          <div class="summary-grid">
+            <div>
+              <span class="summary-label">Pages</span>
+              <strong id="summaryPages">-</strong>
+            </div>
+            <div>
+              <span class="summary-label">Sections</span>
+              <strong id="summarySections">-</strong>
+            </div>
+            <div>
+              <span class="summary-label">Assets</span>
+              <strong id="summaryAssets">-</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="card panel summary-card">
+          <p class="eyebrow">Workspace</p>
+          <code id="workspacePath" class="path-chip">Loading...</code>
+          <p id="workspaceStatus" class="hint">
+            The viewer reads generated JSON and asset files directly from this workspace.
+          </p>
+        </article>
+      </section>
+
+      <section class="viewer-toolbar card panel">
+        <form id="queryForm" class="query-form">
+          <input
+            id="keywordInput"
+            type="text"
+            placeholder="Search across nodes, captions, headings, and formulas"
+            autocomplete="off"
+          />
+          <select id="typeSelect">
+            <option value="">All node types</option>
+            <option value="heading">Heading</option>
+            <option value="paragraph">Paragraph</option>
+            <option value="formula">Formula</option>
+            <option value="figure">Figure</option>
+            <option value="table">Table</option>
+          </select>
+          <button class="primary-button" type="submit">Search</button>
+          <button id="resetQueryButton" class="ghost-button" type="button">Reset</button>
+        </form>
+      </section>
+
+      <section class="viewer-layout">
+        <aside class="card panel toc-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">TOC</p>
+              <h2>Sections</h2>
+            </div>
+          </div>
+          <nav id="tocTree" class="toc-tree" aria-label="Table of contents"></nav>
+        </aside>
+
+        <section class="viewer-main">
+          <article class="card panel content-panel">
+            <div class="panel-head content-head">
+              <div>
+                <p class="eyebrow">Content</p>
+                <h2 id="contentTitle">Loading</h2>
+              </div>
+              <div id="contentMeta" class="section-meta"></div>
+            </div>
+            <div id="contentNotice" class="hint">
+              Select a section to inspect nodes, formulas, figures, and text.
+            </div>
+            <div id="sectionBody" class="page-inner section-body" data-pdfnav-math-root></div>
+          </article>
+
+          <article class="card panel page-panel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Pages</p>
+                <h2>Preview</h2>
+              </div>
+              <div id="pageMeta" class="section-meta"></div>
+            </div>
+            <div id="pageGallery" class="page-gallery"></div>
+            <div id="pageInspector" class="page-inspector"></div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <template id="toastTemplate">
+      <div class="toast" role="status" aria-live="polite"></div>
+    </template>
+
+    <script src="./render-utils.js"></script>
+    <script src="./honkit-plugin-mathjax-cdn/assets/mathjax-init.js"></script>
+    <script src="./viewer.js"></script>
+  </body>
+</html>

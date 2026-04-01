@@ -1,0 +1,36 @@
+{
+  "name": "pdfnav",
+  "version": "0.1.0",
+  "description": "Structured PDF reader for agents with CLI and local Web UI",
+  "private": false,
+  "type": "commonjs",
+  "bin": {
+    "pdfnav": "dist/cli/index.js",
+    "pdf-reader": "dist/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc --noEmit -p tsconfig.json",
+    "dev": "tsx src/cli/index.ts",
+    "config:web": "tsx src/cli/index.ts config web",
+    "start": "node dist/cli/index.js",
+    "prepare": "npm run build",
+    "test": "tsx --test test/**/*.test.ts"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "dependencies": {
+    "commander": "^14.0.1",
+    "express": "^5.1.0",
+    "pino": "^10.1.0",
+    "sharp": "^0.34.4",
+    "zod": "^4.1.8"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.6.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}

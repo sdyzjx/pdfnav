@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDFNav Book</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./book.css" />
+  </head>
+  <body class="book-body">
+    <aside class="book-sidebar">
+      <div class="book-brand">
+        <p class="eyebrow">阅读模式</p>
+        <h1 id="bookTitle">Loading…</h1>
+        <p id="bookSubtitle" class="hint">Preparing table of contents and section content.</p>
+      </div>
+
+      <div class="book-actions">
+        <button id="bookThemeToggle" class="ghost-button" type="button">Theme</button>
+        <a class="ghost-button link-button" href="/viewer">Viewer</a>
+        <a class="ghost-button link-button" href="/config">Config</a>
+      </div>
+
+      <nav id="bookToc" class="book-toc" aria-label="Book table of contents"></nav>
+    </aside>
+
+    <main class="book-main page-inner" data-pdfnav-math-root>
+      <header class="book-header">
+        <div>
+          <p class="eyebrow">章节</p>
+          <h2 id="chapterTitle">Loading section…</h2>
+          <p id="chapterMeta" class="hint"></p>
+        </div>
+        <a id="sourcePdfBookLink" class="ghost-button link-button" href="/workspace/source.pdf" target="_blank" rel="noreferrer">
+          原始 PDF
+        </a>
+      </header>
+
+      <article id="bookContent" class="book-content"></article>
+
+      <footer class="book-footer">
+        <button id="prevSectionButton" class="ghost-button" type="button">上一章</button>
+        <button id="nextSectionButton" class="ghost-button" type="button">下一章</button>
+      </footer>
+    </main>
+
+    <script src="./render-utils.js"></script>
+    <script src="./honkit-plugin-mathjax-cdn/assets/mathjax-init.js"></script>
+    <script src="./book.js"></script>
+  </body>
+</html>

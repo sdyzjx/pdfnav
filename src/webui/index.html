@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF Reader Config</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="backdrop backdrop-left"></div>
+    <div class="backdrop backdrop-right"></div>
+
+    <main class="shell">
+      <section class="hero card">
+        <div class="hero-copy">
+          <p class="eyebrow">Local PDF Reader</p>
+          <h1>Configuration</h1>
+          <p class="lede">
+            View and update the BigModel API key used by the OCR pipeline. This page talks to
+            <code>GET /api/config</code> and <code>PUT /api/config</code>.
+          </p>
+        </div>
+        <div class="hero-status">
+          <div class="hero-links">
+            <a class="ghost-link" href="/viewer">Viewer</a>
+          </div>
+          <span id="statusBadge" class="badge badge-warm">Loading</span>
+          <p id="statusText" class="status-text">Fetching current configuration...</p>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">API Key</p>
+              <h2>BigModel</h2>
+            </div>
+            <button id="refreshButton" class="ghost-button" type="button">Refresh</button>
+          </div>
+
+          <form id="configForm" class="form">
+            <label for="apiKey" class="field-label">API key</label>
+            <div class="key-row">
+              <input
+                id="apiKey"
+                name="apiKey"
+                type="password"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="Enter your BigModel API key"
+              />
+              <button id="toggleVisibility" class="ghost-button inline" type="button">
+                Show
+              </button>
+            </div>
+
+            <p class="hint">
+              The value is sent only to your local backend. The UI masks the key after loading.
+            </p>
+
+            <div class="actions">
+              <button id="saveButton" class="primary-button" type="submit">Save config</button>
+              <span id="saveHint" class="save-hint"></span>
+            </div>
+          </form>
+        </article>
+
+        <aside class="card panel stack">
+          <div>
+            <p class="eyebrow">Status</p>
+            <h2>Runtime snapshot</h2>
+          </div>
+
+          <dl class="status-list">
+            <div>
+              <dt>Configured</dt>
+              <dd id="configuredValue">Unknown</dd>
+            </div>
+            <div>
+              <dt>Last updated</dt>
+              <dd id="updatedValue">Unknown</dd>
+            </div>
+            <div>
+              <dt>Source</dt>
+              <dd id="sourceValue">Local config</dd>
+            </div>
+            <div>
+              <dt>Backend</dt>
+              <dd>/api/config</dd>
+            </div>
+          </dl>
+
+          <div class="callout">
+            <p class="callout-title">Notes</p>
+            <p>
+              This UI is intentionally static. Backend persistence, validation, and secret storage
+              should be handled by the server.
+            </p>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <template id="toastTemplate">
+      <div class="toast" role="status" aria-live="polite"></div>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
