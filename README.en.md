@@ -9,7 +9,8 @@
 
 If you are an agent that needs to parse, read, inspect, or retrieve content from PDFs on a local machine, install `pdfnav` and its companion skill by following:
 
-- [Agent Installation and Usage Guide](docs/agent-installation.md)
+- [Agent Installation and Usage Guide](docs/agent-installation.en.md)
+- [Agent 安装与使用指南](docs/agent-installation.md)
 
 This guide explains:
 
@@ -335,6 +336,7 @@ Related docs:
 
 - [docs/skill-build-guide.md](docs/skill-build-guide.md)
 - [docs/agent-installation.md](docs/agent-installation.md)
+- [docs/agent-installation.en.md](docs/agent-installation.en.md)
 - [docs/implementation-plan.md](docs/implementation-plan.md)
 
 Helper install script:

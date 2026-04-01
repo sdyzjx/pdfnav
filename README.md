@@ -10,6 +10,7 @@
 如果你是一个需要在本地环境中解析、阅读、检索 PDF 的 agent，可以直接按这份教程安装 `pdfnav` 和配套 skill：
 
 - [Agent 安装与使用指南](docs/agent-installation.md)
+- [Agent Installation and Usage Guide](docs/agent-installation.en.md)
 
 这份教程会说明：
 
@@ -332,6 +333,7 @@ npm test
 
 - [docs/skill-build-guide.md](docs/skill-build-guide.md)
 - [docs/agent-installation.md](docs/agent-installation.md)
+- [docs/agent-installation.en.md](docs/agent-installation.en.md)
 - [docs/implementation-plan.md](docs/implementation-plan.md)
 
 安装 skill 的辅助脚本：
