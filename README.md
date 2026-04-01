@@ -2,6 +2,19 @@
 
 `pdfnav` 是一个面向 agent 的结构化 PDF 读取器。它基于智谱 BigModel 的 `GLM-OCR` 做逐页图像 OCR，把 PDF 转成适合程序和智能体消费的工作区产物，同时提供 CLI 和本地 Web UI。
 
+## 如果你是 Agent
+
+如果你是一个需要在本地环境中解析、阅读、检索 PDF 的 agent，可以直接按这份教程安装 `pdfnav` 和配套 skill：
+
+- [Agent 安装与使用指南](docs/agent-installation.md)
+
+这份教程会说明：
+
+- 如何安装 `pdfnav`
+- 如何配置基于智谱 BigModel `GLM-OCR` 的 API key
+- 如何把仓库里的 `pdf` skill 安装到 `$CODEX_HOME/skills/pdf`
+- 如何用 CLI 和本地 `/book`、`/viewer` 页面读取解析结果
+
 它不是一个“直接问答 PDF”的黑盒，而是把文档拆成：
 - 页级布局 `pages/page-xxxx.json`
 - 章节结构 `toc.json` / `sections.json`
