@@ -1,5 +1,8 @@
 # pdfnav
 
+[![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-1f6feb)](README.md)
+[![English](https://img.shields.io/badge/README-English-24292f)](README.en.md)
+
 `pdfnav` 是一个面向 agent 的结构化 PDF 读取器。它基于智谱 BigModel 的 `GLM-OCR` 做逐页图像 OCR，把 PDF 转成适合程序和智能体消费的工作区产物，同时提供 CLI 和本地 Web UI。
 
 ## 如果你是 Agent
