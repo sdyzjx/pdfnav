@@ -73,6 +73,19 @@
 
 ## 安装
 
+给 agent 或新环境安装，推荐直接使用仓库脚本：
+
+```bash
+bash scripts/install-agent.sh
+pdfnav --help
+```
+
+这个脚本会：
+
+- 安装本地依赖
+- 执行 `npm link`，把 `pdfnav` CLI 链接到当前 npm 全局前缀
+- 把仓库内置的 `pdf` skill 安装到 `${CODEX_HOME:-$HOME/.codex}/skills/pdf`
+
 仓库内开发使用：
 
 ```bash
@@ -83,8 +96,11 @@ npm run build
 本地全局安装命令：
 
 ```bash
+npm install
 npm install -g .
 ```
+
+注意：在一个刚 clone 下来的仓库里，直接执行 `npm install -g .` 往往会失败，因为打包前需要先运行 TypeScript 构建，而 `tsc` 来自本地 devDependencies。新环境优先使用上面的 `scripts/install-agent.sh`，或者至少先执行一次 `npm install`。
 
 安装后检查：
 
@@ -95,6 +111,7 @@ pdfnav --help
 如果你只想在当前仓库下调试：
 
 ```bash
+npm install
 npm link
 pdfnav --help
 ```
