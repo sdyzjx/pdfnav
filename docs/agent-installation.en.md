@@ -6,14 +6,14 @@ This document is written for agents and agent maintainers. Its purpose is to hel
 
 ```bash
 git clone <repo-url>
-cd pdf-reader
-npm install
-npm run build
+cd pdfnav
+bash scripts/install-agent.sh
 ```
 
-If you only want to use it inside the repository:
+If you want the manual flow instead:
 
 ```bash
+npm install
 npm link
 pdfnav --help
 ```
@@ -21,9 +21,15 @@ pdfnav --help
 If you want a globally available command:
 
 ```bash
+npm install
 npm install -g .
 pdfnav --help
 ```
+
+Notes:
+
+- the repository directory is `pdfnav`, not `pdf-reader`
+- on a fresh checkout, `npm install -g .` fails if you skip `npm install`, because the TypeScript build depends on local devDependencies including `tsc`
 
 ## 2. Install system dependencies
 
@@ -82,7 +88,6 @@ If an older `pdf` skill already exists, this replaces it.
 You can also use the helper script:
 
 ```bash
-export CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
 bash scripts/install-pdfnav-skill.sh
 ```
 

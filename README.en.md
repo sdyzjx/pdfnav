@@ -74,6 +74,19 @@ Important notes:
 
 ## Installation
 
+For agents or a fresh local environment, the recommended entrypoint is the helper script:
+
+```bash
+bash scripts/install-agent.sh
+pdfnav --help
+```
+
+The script will:
+
+- install local dependencies
+- run `npm link` so the `pdfnav` CLI is linked into the current npm global prefix
+- install the bundled `pdf` skill into `${CODEX_HOME:-$HOME/.codex}/skills/pdf`
+
 For development inside the repo:
 
 ```bash
@@ -84,8 +97,11 @@ npm run build
 For a local global command:
 
 ```bash
+npm install
 npm install -g .
 ```
+
+Note: on a freshly cloned checkout, `npm install -g .` usually fails if you run it before `npm install`, because the package has to build TypeScript sources first and `tsc` lives in local devDependencies. In a new environment, prefer `scripts/install-agent.sh`, or at least run `npm install` once before the global install.
 
 Check installation:
 
@@ -96,6 +112,7 @@ pdfnav --help
 If you only want to test inside the repository:
 
 ```bash
+npm install
 npm link
 pdfnav --help
 ```

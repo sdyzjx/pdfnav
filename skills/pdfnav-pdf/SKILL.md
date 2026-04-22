@@ -24,8 +24,13 @@ description: "Use when tasks involve parsing, reading, viewing, inspecting, or s
 
 ## Prerequisites
 
-- Work from the repository that contains `pdfnav`, or ensure `pdfnav` is installed and on `PATH`.
-- If `pdfnav` is not available globally, use:
+- Ensure `pdfnav` is installed and on `PATH`. For a fresh checkout, prefer:
+
+```bash
+bash scripts/install-agent.sh
+```
+
+- If you want to run from source instead of a linked/global CLI, you must be inside the `pdfnav` repository and must have already run `npm install`. Only then use:
 
 ```bash
 npx tsx src/cli/index.ts --help
@@ -145,6 +150,7 @@ The workspace contains:
 
 ## Failure handling
 
+- If the shell says `pdfnav: command not found`, install it first with `bash scripts/install-agent.sh`, or run `npm install && npm link` from the repository root.
 - If `parse-pages` times out, retry with a smaller page range.
 - If OCR succeeds but structure quality is weak, trust `pages/*.json` over `toc/sections`.
 - If a section cannot be found by `inspect-section`, inspect `toc.json` first.
