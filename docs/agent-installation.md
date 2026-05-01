@@ -6,14 +6,14 @@
 
 ```bash
 git clone <repo-url>
-cd pdf-reader
-npm install
-npm run build
+cd pdfnav
+bash scripts/install-agent.sh
 ```
 
-如果只想在当前仓库内使用：
+如果你想手动安装：
 
 ```bash
+npm install
 npm link
 pdfnav --help
 ```
@@ -21,9 +21,15 @@ pdfnav --help
 如果要全局安装命令：
 
 ```bash
+npm install
 npm install -g .
 pdfnav --help
 ```
+
+注意：
+
+- 仓库目录应为 `pdfnav`，不是 `pdf-reader`
+- 在干净仓库里直接执行 `npm install -g .` 会因为缺少本地 `tsc` 而失败，所以要先 `npm install`，或者直接使用上面的安装脚本
 
 ## 2. 配置依赖
 
@@ -82,7 +88,6 @@ cp skills/pdfnav-pdf/SKILL.md "$CODEX_HOME/skills/pdf/SKILL.md"
 也可以直接用仓库脚本：
 
 ```bash
-export CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
 bash scripts/install-pdfnav-skill.sh
 ```
 
